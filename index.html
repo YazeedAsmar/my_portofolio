@@ -15,23 +15,24 @@
 </head>
  
 <body>
-    <div class="container">
-        <nav class="nav">
-            <div class="home-link">
-                <a href="#home">Home</a>
-            </div>
-            <div class="pro-link">
-                <a href="#certificates">Certificates</a>
-            </div>
-            <div class="experiance-like">
-                <a href="#experiance">Experiance</a>
-            </div>
-            <div class="vol-link">
-                <a href="#volunteer">Volunteer</a>
-            </div>
-            <div class="contact-link">
-                <a href="#contact">Let's Work Together</a>
-            </div>
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-link">
+                    <a href="#home" class="nav-item active">Home</a>
+                </div>
+                <div class="nav-link">
+                    <a href="#certificates" class="nav-item">Certificates</a>
+                </div>
+                <div class="nav-link">
+                    <a href="#experiance" class="nav-item">Experience</a>
+                </div>
+                <div class="nav-link">
+                    <a href="#volunteer" class="nav-item">Volunteer</a>
+                </div>
+                <div class="nav-link">
+                    <a href="#contact" class="nav-item special">Let's Work Together</a>
+                </div>
+
             <div class="my-links">
                 <!-- <a href="www.linkedin.com/in/yazeedalasmar" target="_blank" aria-label="LinkedIn">
                     <i class="fa-brands fa-linkedin"></i>
@@ -87,14 +88,29 @@
 
         <!-- /* ==== certificates ==== */ -->
         <div class="certificates-title">
-            <p id="certificates">Certificates</p>
+        <p id="certificates">Certificates</p>
         </div>
+
         <section class="certificates-body">
-            <a class="certificates_1" href="https://drive.google.com/file/d/1t5ts4pk3jbL_46UNp4FYTk_e1C47m4KK/view" target="_blank"><img src="./static/AWS.jpeg" alt="AWS" style="width:auto;"></a>
-            <a class="certificates_2" href="https://drive.google.com/file/d/1pEFsAtz928rTshVsgQ3cgeqjXy3ndFRs/view" target="_blank"><img src="./static/robotna.png" alt="Robotna Certificate"></a>
-            <a class="certificates_3" target="_blank"><img src="./static/parachot16.jpeg" alt="Parachot16 Certificate"></a>
-            <a class="certificates_4" target="_blank"><img src="./static/theHashemiteUniverCert.png" alt="University Certificate"></a>
+        <a href="https://drive.google.com/file/d/1t5ts4pk3jbL_46UNp4FYTk_e1C47m4KK/view" 
+            target="_blank" data-title="AWS Certificate">
+            <img src="./static/AWS.jpeg" alt="AWS Certificate">
+        </a>
+
+        <a href="https://drive.google.com/file/d/1pEFsAtz928rTshVsgQ3cgeqjXy3ndFRs/view" 
+            target="_blank" data-title="Robotna⁺ Certificate">
+            <img src="./static/robotna.png" alt="Robotna Certificate">
+        </a>
+
+        <a target="_blank" data-title="Parachot16 Certificate">
+            <img src="./static/parachot16.jpeg" alt="Parachot16 Certificate">
+        </a>
+
+        <a target="_blank" data-title="University Certificate">
+            <img src="./static/theHashemiteUniverCert.png" alt="University Certificate">
+        </a>
         </section>
+
 
         <!-- Experience Section -->
         <div class="experiance-title">
@@ -361,6 +377,14 @@
             </div>
         </div>
     </section>
+    <!-- Footer Credit -->
+    <div class="contact-credit">
+        <p>
+            © 2025 <span class="credit-name">Yazeed Alasmar</span>. 
+            All Rights Reserved.
+        </p>
+    </div>
+
 </body>
 
 </html>

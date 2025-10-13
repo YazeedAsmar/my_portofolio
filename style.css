@@ -49,6 +49,58 @@ body {
     width: 100%;
     margin: 0 auto;
 }
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 20px 0;
+    background: var(--dark-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+}
+
+.nav-item {
+    position: relative;
+    color: var(--white);
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 600;
+    font-family: "IBM Plex Mono", monospace; /* الخط مثل باقي العناوين */
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand), var(--brand2));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--brand);
+    transform: translateY(-2px);
+}
+
+.nav-item:hover::after {
+    width: 60%;
+}
+
+.nav-item.active::after {
+    width: 60%;
+}
+
+
 
 /* ==== Nav (responsive) ==== */
 .nav {
@@ -296,43 +348,215 @@ body {
 .certificates-title {
     width: 100%;
     text-align: center;
-    margin: 10px 0 28px;
+    margin: 40px 0 36px;
     padding: 0 16px;
 }
 
 .certificates-title p {
     display: inline-block;
-    color: var(--white);
-    font-weight: 700;
-    font-size: clamp(24px, 6vw, 50px);
-    transition: color 0.3s ease;
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 60px);
+    letter-spacing: 1.5px;
+    background: linear-gradient(
+        90deg,
+        #00c6ff,
+        #0072ff,
+        #00e6b8,
+        #ffd166
+    );
+    background-size: 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientFlow 6s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+    transition: transform 0.4s ease, text-shadow 0.4s ease;
 }
 
 .certificates-title p:hover {
-    color: var(--brand);
+    transform: scale(1.05);
+    text-shadow: 0 0 35px rgba(0, 255, 204, 0.6);
     cursor: pointer;
 }
 
+/* ==== Gradient Animation ==== */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 /* ==== experiance ==== */
+/* ===== Experiance Title (مطابق لتصميم Certificates) ===== */
 .experiance-title {
     width: 100%;
     text-align: center;
-    margin: 10px 0 28px;
+    margin: 40px 0 12px; /* تباعد مناسب مع subtitle */
     padding: 0 16px;
 }
 
-.experiance-title p {
-    display: inline-block;
-    color: var(--white);
-    font-weight: 700;
-    font-size: clamp(24px, 6vw, 50px);
-    transition: color 0.3s ease;
+.experiance-title p,
+#experiance { /* backup selector لو تم استخدام id مباشرة */
+    display: inline-block;              /* مهم لعمل background-clip على النص */
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 60px);
+    letter-spacing: 1.5px;
+    background: linear-gradient(
+        90deg,
+        #00c6ff,
+        #0072ff,
+        #00e6b8,
+        #ffd166
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* ضروري على WebKit للتدرج داخل النص */
+    color: transparent;                    /* fallback */
+    animation: gradientFlow 6s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.12); /* أخف من السابق ليتناسق مع subtitle */
+    transition: transform 0.35s ease, text-shadow 0.35s ease;
 }
 
-.experiance-title p:hover {
-    color: var(--brand);
+.experiance-title p:hover,
+#experiance:hover {
+    transform: scale(1.04);
+    text-shadow: 0 0 32px rgba(0, 255, 204, 0.48);
     cursor: pointer;
 }
+
+/* ==== Gradient Animation ==== */
+@keyframes gradientFlow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== Subtitle under the title ===== */
+.experiance-subtitle {
+    text-align: center;
+    color: rgba(255,255,255,0.72);
+    font-size: clamp(14px, 1.6vw, 16px);
+    margin: 6px 0 28px;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+/* ===== Container for experience cards (basic responsive layout) ===== */
+.experiance-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 0 18px 60px;
+    align-items: start;
+}
+
+/* ===== Experience Card (basic polished style) ===== */
+.exp-card {
+    display: block;
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+    padding: 14px;
+    text-decoration: none;
+    color: var(--white, #fff);
+    transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+}
+
+.exp-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 46px rgba(0,0,0,0.6);
+    border-color: rgba(0,200,160,0.22);
+}
+
+/* small internal layout for card header/body */
+.card-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    color: var(--white, #fff);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.45) inset;
+}
+
+.role-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.role-position {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* body */
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+}
+
+.card-dots {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+/* decorative small dots */
+.card-dots span{
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* responsive tweaks */
+@media (max-width:480px){
+    .experiance-title p, #experiance { font-size: clamp(22px, 7.5vw, 36px); }
+    .card-icon { width: 46px; height: 46px; font-size: 18px; }
+}
+
+/* ==== Gradient Animation ==== */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 /* responsive grid */
 .certificates-body {
@@ -619,59 +843,152 @@ body {
 }
 
 
-
-/* ==== contact ==== */
-.contact-title {
+/* ===== Volunteer Title (مطابق لتصميم Experience/Certificates) ===== */
+.volunteer-title {
     width: 100%;
     text-align: center;
-    margin: 10px 0 28px;
+    margin: 40px 0 12px;
     padding: 0 16px;
 }
 
-.contact-title #contact {
+.volunteer-title p,
+#volunteer {
     display: inline-block;
-    color: var(--white);
-    font-weight: 700;
-    font-size: clamp(24px, 6vw, 50px);
-    transition: color 0.3s ease;
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 60px);
+    letter-spacing: 1.5px;
+    background: linear-gradient(
+        90deg,
+        #00c6ff,
+        #0072ff,
+        #00e6b8,
+        #ffd166
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradientFlow 6s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.12);
+    transition: transform 0.35s ease, text-shadow 0.35s ease;
 }
 
-.contact-title #contact:hover {
-    color: var(--brand);
+.volunteer-title p:hover,
+#volunteer:hover {
+    transform: scale(1.04);
+    text-shadow: 0 0 32px rgba(0, 255, 204, 0.48);
     cursor: pointer;
 }
 
-.contact-title .quote {
-    color: #c9c9c9;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 25px;
-    font-weight: bold;
-    padding-bottom: 20px;
+/* ==== Reuse gradient keyframes (if not already declared) ==== */
+@keyframes gradientFlow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* ==== Volunteer Section ==== */
-.vol-link {
+/* ===== Volunteer subtitle ===== */
+.volunteer-subtitle {
+    text-align: center;
+    color: rgba(255,255,255,0.72);
+    font-size: clamp(14px, 1.6vw, 16px);
+    margin: 6px 0 28px;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+/* ===== Container for volunteer cards (responsive grid) ===== */
+.volunteer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 0 18px 60px;
+    align-items: start;
+}
+
+/* ===== Volunteer Card (matches .exp-card style) ===== */
+.volunteer-card {
+    display: block;
     position: relative;
-    padding-left: 28px;
+    border-radius: 14px;
     overflow: hidden;
-    text-align: right;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+    padding: 14px;
+    text-decoration: none;
+    color: var(--white, #fff);
+    transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
 }
 
-.vol-link::before {
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    left: -40px;
-    top: 50%;
-    color: var(--brand);
-    transition: left 0.4s ease;
-    transform: translateY(-50%);
-    pointer-events: none;
-    content: "\f4ad";
+.volunteer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 46px rgba(0,0,0,0.6);
+    border-color: rgba(0,200,160,0.22);
 }
 
-.vol-link:hover::before {
-    left: 3px;
+/* common internals (reuse same classes as experience cards) */
+.volunteer-card .card-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.volunteer-card .card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    color: var(--white, #fff);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.45) inset;
+}
+
+.volunteer-card .role-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.volunteer-card .role-position {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+}
+
+.volunteer-card .card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+}
+
+.volunteer-card .card-dots {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.volunteer-card .card-dots span{
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* small responsive tweaks */
+@media (max-width:480px){
+    .volunteer-title p, #volunteer { font-size: clamp(22px, 7.5vw, 36px); }
+    .volunteer-card .card-icon { width: 46px; height: 46px; font-size: 18px; }
 }
 
 
@@ -1346,26 +1663,105 @@ body {
     margin-bottom: 50px;
 }
 
+/* ===== Contact Section Title (مطابق لتصميم الأقسام السابقة) ===== */
 .contact-title {
-    font-size: clamp(32px, 6vw, 56px);
-    font-weight: 700;
-    color: var(--white);
-    margin: 0 0 20px;
-    position: relative;
     display: inline-block;
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 60px);
+    letter-spacing: 1.5px;
+    text-align: center;
+    background: linear-gradient(
+        90deg,
+        #00c6ff,
+        #0072ff,
+        #00e6b8,
+        #ffd166
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradientFlow 6s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.12);
+    transition: transform 0.35s ease, text-shadow 0.35s ease;
+    margin: 0 0 20px;
 }
 
-.contact-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--brand), var(--brand2));
-    border-radius: 2px;
+.contact-title:hover {
+    transform: scale(1.04);
+    text-shadow: 0 0 32px rgba(0, 255, 204, 0.48);
+    cursor: pointer;
 }
+
+/* ==== Gradient Animation (إعادة الاستخدام من الأقسام الأخرى) ==== */
+@keyframes gradientFlow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== Contact Subtitle & Description ===== */
+.contact-subtitle {
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    font-size: clamp(16px, 1.8vw, 20px);
+    margin-bottom: 14px;
+    font-weight: 500;
+}
+
+.contact-subtitle .highlight {
+    color: var(--brand2, #00e6b8);
+    font-weight: 700;
+}
+
+.contact-description {
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    max-width: 720px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+    font-size: clamp(14px, 1.5vw, 16px);
+}
+
+/* ===== Benefits Grid (same clean styling) ===== */
+.benefits-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.benefit-item i {
+    color: var(--brand2, #00e6b8);
+}
+
+.benefit-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-4px);
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 480px) {
+    .contact-title {
+        font-size: clamp(22px, 7.5vw, 38px);
+    }
+}
+
 
 .contact-subtitle {
     font-size: clamp(18px, 2.5vw, 24px);
@@ -2121,6 +2517,32 @@ both	        Apply only in a range
         align-items: center;
         padding-left: 30px;
     }
+}
+
+/* Footer Credit Section */
+.contact-credit {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 128, 0.15);
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #ccc;
+    line-height: 1.6;
+    font-family: 'Courier New', monospace;
+}
+
+.contact-credit .credit-name {
+    color: #4ade80; 
+    font-weight: 600;
+}
+
+.contact-credit .credit-note {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-top: 0.3rem;
+    font-style: italic;
 }
 
 
