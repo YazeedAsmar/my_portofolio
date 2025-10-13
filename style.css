@@ -83,6 +83,7 @@ body {
 
 .home-link,
 .pro-link,
+.experiance-like,
 .contact-link {
     position: relative;
     padding-left: 28px;
@@ -93,6 +94,7 @@ body {
 /* icons that slide in on hover */
 .home-link::before,
 .pro-link::before,
+.experiance-like::before,
 .contact-link::before {
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
@@ -111,7 +113,12 @@ body {
 
 .pro-link::before {
     top: 50%;
-    content: "\f5fc";
+    content: "\f19d";
+}
+
+.experiance-like::before {
+    top: 50%;
+    content: "\f0b1";
 }
 
 .contact-link::before {
@@ -124,6 +131,10 @@ body {
 }
 
 .pro-link:hover::before {
+    left: 3px;
+}
+
+.experiance-like:hover::before {
     left: 3px;
 }
 
