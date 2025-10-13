@@ -281,15 +281,15 @@ body {
     background: linear-gradient(135deg, var(--brand2), var(--brand));
 }
 
-/* ==== Projects ==== */
-.projects-title {
+/* ==== certificates ==== */
+.certificates-title {
     width: 100%;
     text-align: center;
     margin: 10px 0 28px;
     padding: 0 16px;
 }
 
-.projects-title p {
+.certificates-title p {
     display: inline-block;
     color: var(--white);
     font-weight: 700;
@@ -297,13 +297,34 @@ body {
     transition: color 0.3s ease;
 }
 
-.projects-title p:hover {
+.certificates-title p:hover {
+    color: var(--brand);
+    cursor: pointer;
+}
+
+/* ==== experiance ==== */
+.experiance-title {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 28px;
+    padding: 0 16px;
+}
+
+.experiance-title p {
+    display: inline-block;
+    color: var(--white);
+    font-weight: 700;
+    font-size: clamp(24px, 6vw, 50px);
+    transition: color 0.3s ease;
+}
+
+.experiance-title p:hover {
     color: var(--brand);
     cursor: pointer;
 }
 
 /* responsive grid */
-.projects-body {
+.certificates-body {
     display: grid;
     gap: 20px;
     grid-template-columns: 1fr; /* 1 column by default */
@@ -313,7 +334,7 @@ body {
     max-width: 100%;
 }
 
-.projects-body > * {
+.certificates-body > * {
     place-self: center stretch;
     aspect-ratio: 16 / 10;
     max-width: 100%;
@@ -335,14 +356,14 @@ body {
         box-shadow 0.2s ease,
         border-color 0.2s ease;
 }
-.projects-body > *:hover {
+.certificates-body > *:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
     border-color: var(--brand);
     cursor: pointer;
 }
-/* #--------------------project_1-------------------- */
-.project_1 {
+/* #--------------------certificates_1-------------------- */
+.certificates_1 {
     position: relative;
     isolation: isolate;
     border-radius: var(--r);
@@ -357,7 +378,8 @@ body {
         filter 0.35s ease;
     will-change: transform, background-size;
 }
-.project_1::before {
+
+.certificates_1::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -367,8 +389,9 @@ body {
     opacity: 0.9;
     pointer-events: none;
 }
-.project_1::after {
-    content: "project_1";
+
+.certificates_1::after {
+    content: "AWS Certificate";
     position: absolute;
     left: 12px;
     right: 12px;
@@ -386,23 +409,25 @@ body {
     border-radius: 12px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
-.project_1:hover,
-.project_1:focus-visible {
+
+.certificates_1:hover,
+.certificates_1:focus-visible {
     transform: translateY(-4px) scale(1.02);
     box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
     background-size: 116%;
     outline: none;
 }
-.project_1:hover::before {
+
+.certificates_1:hover::before {
     opacity: 1;
 }
-.project_1:focus-visible {
+.certificates_1:focus-visible {
     box-shadow:
         0 18px 44px rgba(0, 0, 0, 0.5),
         0 0 0 3px #67AE6E;
 }
-/* #--------------------project_2-------------------- */
-.project_2 {
+/* #--------------------certificates_2-------------------- */
+.certificates_2 {
     position: relative;
     isolation: isolate;
     border-radius: var(--r);
@@ -417,7 +442,7 @@ body {
         filter 0.35s ease;
     will-change: transform, background-size;
 }
-.project_2::before {
+.certificates_2::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -427,8 +452,8 @@ body {
     opacity: 0.9;
     pointer-events: none;
 }
-.project_2::after {
-    content: "project_2";
+.certificates_2::after {
+    content: "Robotna⁺ Certificate";
     position: absolute;
     left: 12px;
     right: 12px;
@@ -446,17 +471,137 @@ body {
     border-radius: 12px;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
-.project_2:hover,
-.project_2:focus-visible {
+.certificates_2:hover,
+.certificates_2:focus-visible {
     transform: translateY(-4px) scale(1.02);
     box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
     background-size: 116%;
     outline: none;
 }
-.project_2:hover::before {
+.certificates_2:hover::before {
     opacity: 1;
 }
-.project_2:focus-visible {
+.certificates_2:focus-visible {
+    box-shadow:
+        0 18px 44px rgba(0, 0, 0, 0.5),
+        0 0 0 3px #67AE6E;
+}
+/* #--------------------certificates_3-------------------- */
+.certificates_3 {
+    position: relative;
+    isolation: isolate;
+    border-radius: var(--r);
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: #0e0e0e url(static/project_1-img.png) center / 108% no-repeat;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background-size 0.55s ease,
+        filter 0.35s ease;
+    will-change: transform, background-size;
+}
+.certificates_3::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.25) 55%, rgba(0, 0, 0, 0.55) 100%);
+    transition: opacity 0.35s ease;
+    opacity: 0.9;
+    pointer-events: none;
+}
+.certificates_3::after {
+    content: "Parachot16 Certificate";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 10px 14px;
+    font-size: clamp(14px, 1.8vw, 18px);
+    line-height: 1.25;
+    color: var(--white);
+    font-weight: bold;
+    font-family: "IBM Plex Mono", monospace;
+    background: rgba(18, 18, 18, 0.52);
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+.certificates_3:hover,
+.certificates_3:focus-visible {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+    background-size: 116%;
+    outline: none;
+}
+.certificates_3:hover::before {
+    opacity: 1;
+}
+.certificates_3:focus-visible {
+    box-shadow:
+        0 18px 44px rgba(0, 0, 0, 0.5),
+        0 0 0 3px #67AE6E;
+}
+/* #--------------------certificates_4-------------------- */
+.certificates_4 {
+    position: relative;
+    isolation: isolate;
+    border-radius: var(--r);
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: #0e0e0e url(static/project_1-img.png) center / 108% no-repeat;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background-size 0.55s ease,
+        filter 0.35s ease;
+    will-change: transform, background-size;
+}
+.certificates_4::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.25) 55%, rgba(0, 0, 0, 0.55) 100%);
+    transition: opacity 0.35s ease;
+    opacity: 0.9;
+    pointer-events: none;
+}
+.certificates_4::after {
+    content: "University Certificate";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 10px 14px;
+    font-size: clamp(14px, 1.8vw, 18px);
+    line-height: 1.25;
+    color: var(--white);
+    font-weight: bold;
+    font-family: "IBM Plex Mono", monospace;
+    background: rgba(18, 18, 18, 0.52);
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+.certificates_4:hover,
+.certificates_4:focus-visible {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+    background-size: 116%;
+    outline: none;
+}
+.certificates_4:hover::before {
+    opacity: 1;
+}
+.certificates_4:focus-visible {
     box-shadow:
         0 18px 44px rgba(0, 0, 0, 0.5),
         0 0 0 3px #67AE6E;
@@ -702,7 +847,7 @@ footer.contact-me-info > p {
 #home {
     scroll-margin-top: 200px;
 }
-#projects {
+#certificates {
     scroll-margin-top: 80px;
 }
 #contact {
@@ -719,11 +864,11 @@ both	        Apply only in a range
    320px ≤ X ≤ 480px xx-sm phones
 ------------------------------------------- */
 @media (min-width: 320px) and (max-width: 480px) {
-    .projects-body {
+    .certificates-body {
         grid-template-columns: 1fr;
         max-width: 38rem;
     }
-    .projects-body > * {
+    .certificates-body > * {
         margin: auto;
         width: 290px;
         height: 220px;
@@ -744,7 +889,7 @@ both	        Apply only in a range
     #home {
         scroll-margin-top: 120px;
     }
-    #projects {
+    #certificates {
         scroll-margin-top: 120px;
     }
     .contact-title .quote {
@@ -787,11 +932,11 @@ both	        Apply only in a range
    481 ≤ X ≤ 576px (small phones)
 ------------------------------------------- */
 @media (min-width: 481px) and (max-width: 576px) {
-    .projects-body {
+    .certificates-body {
         grid-template-columns: 1fr;
         max-width: 38rem;
     }
-    .projects-body > * {
+    .certificates-body > * {
         margin: auto;
         width: 290px;
         height: 220px;
@@ -812,7 +957,7 @@ both	        Apply only in a range
     #home {
         scroll-margin-top: 120px;
     }
-    #projects {
+    #certificates {
         scroll-margin-top: 120px;
     }
     .contact-title .quote {
@@ -858,11 +1003,11 @@ both	        Apply only in a range
    577px ≤ X ≤ 639px (large phones)
 ------------------------------------------- */
 @media (min-width: 577px) and (max-width: 639px) {
-    .projects-body {
+    .certificates-body {
         grid-template-columns: 1fr;
         max-width: 38rem;
     }
-    .projects-body > * {
+    .certificates-body > * {
         margin: auto;
         width: 390px;
         height: 250px;
@@ -883,7 +1028,7 @@ both	        Apply only in a range
     #home {
         scroll-margin-top: 80px;
     }
-    #projects {
+    #certificates {
         scroll-margin-top: 80px;
     }
     .contact-title .quote {
@@ -927,7 +1072,7 @@ both	        Apply only in a range
    640–767px (your home-body adjustments)
 ------------------------------------------- */
 @media (min-width: 640px) and (max-width: 767px) {
-    .projects-body {
+    .certificates-body {
         grid-template-columns: repeat(2, minmax(var(--card-min), 1fr));
         max-width: 56rem;
     }
@@ -941,7 +1086,7 @@ both	        Apply only in a range
     .contact-link::before {
         content: "";
     }
-    .projects-body > * {
+    .certificates-body > * {
         margin: auto;
         width: 290px;
         height: 200px;
@@ -949,7 +1094,7 @@ both	        Apply only in a range
     #home {
         scroll-margin-top: 80px;
     }
-    #projects {
+    #certificates {
         scroll-margin-top: 80px;
     }
     .contact-title .quote {
@@ -998,11 +1143,11 @@ both	        Apply only in a range
    ≥ 768px (tablets) → 2 columns
 ------------------------------------------- */
 @media (min-width: 768px) {
-    .projects-body {
+    .certificates-body {
         grid-template-columns: repeat(2, minmax(var(--card-min), 1fr));
         max-width: 56rem;
     }
-    .projects-body > * {
+    .certificates-body > * {
         margin: auto;
         width: 320px;
         height: 200px;
@@ -1010,7 +1155,7 @@ both	        Apply only in a range
     #home {
         scroll-margin-top: 80px;
     }
-    #projects {
+    #certificates {
         scroll-margin-top: 80px;
     }
     .contact-title .quote {
@@ -1061,11 +1206,11 @@ both	        Apply only in a range
    ≥ 992px (small laptops) → 3 columns
 ------------------------------------------- */
 @media (min-width: 992px) {
-    .projects-body {
+    .certificates-body {
         grid-template-columns: repeat(3, minmax(var(--card-min), 1fr));
         max-width: 68rem;
     }
-    .projects-body > * {
+    .certificates-body > * {
         margin: auto;
         width: 290px;
         height: 200px;
@@ -1118,12 +1263,12 @@ both	        Apply only in a range
    ≥ 1184px (desktops) → keep 3 cols, wider container
 ------------------------------------------- */
 @media (min-width: 1184px) {
-    .projects-body {
+    .certificates-body{
         grid-template-columns: repeat(3, minmax(var(--card-min), 1fr));
         max-width: 72rem; /* ~1152px content width */
         margin: 0 auto;
     }
-    .projects-body > * {
+    .certificates-body > * {
         margin: auto;
         width: 350px;
         height: 300px;
@@ -1143,10 +1288,10 @@ both	        Apply only in a range
    ≥ 1440px (large desktops) → a bit wider
 ------------------------------------------- */
 @media (min-width: 1440px) {
-    .projects-body {
+    .certificates-body {
         max-width: 82rem; /* ~1312px content width */
     }
-    .projects-body > * {
+    .certificates-body > * {
         margin: auto;
         width: 550px;
         height: 300px;
@@ -1160,5 +1305,307 @@ both	        Apply only in a range
         justify-content: center;
         align-items: center;
         padding-left: 30px;
+    }
+}
+/* ====  Experience timeline ==== */
+
+.container-2 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.timeline-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-header p {
+    font-size: 1rem;
+    color: #64748b;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    /* background: linear-gradient(135deg, var(--brand), var(--brand2)); */
+    transition: opacity 0.35s ease;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.job-card {
+    position: relative;
+    display: block;
+    background: var(--card);
+    border: 2px solid #ffffff15;
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    min-height: 120px;
+    max-height: 160px;
+}
+
+.job-card::before {
+    content: '';
+    position: absolute;
+    left: -2.1rem;
+    top: 1.2rem;
+    width: 10px;
+    height: 10px;
+    /* background: var(--brand); */
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    /* box-shadow: 0 0 0 2px var(--brand); */
+    z-index: 2;
+}
+
+.job-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+    border-color: var(--brand);
+}
+
+.job-title {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.company {
+    font-size: clamp(14px, 1.8vw, 16px);
+    font-weight: 500;
+    color: var(--brand2);
+    margin-bottom: 0.6rem;
+}
+
+.duration {
+    font-size: clamp(12px, 1.6vw, 14px);
+    color: #9c9c9c;
+    background: #1b1b1b;
+    padding: 0.3rem 0.8rem;
+    border-radius: 16px;
+    display: inline-block;
+    border: 1px solid #ffffff10;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+
+    .timeline-header h1 {
+        font-size: 2rem;
+    }
+
+    .timeline {
+        padding-left: 1.5rem;
+        max-width: 100%;
+    }
+
+    .timeline::before {
+        left: 0.75rem;
+    }
+    
+    .timeline-item {
+        margin-left: 0.75rem;
+    }
+
+    .job-card {
+        padding: 1rem;
+        min-height: 100px;
+        max-height: 140px;
+    }
+
+    .job-card::before {
+        left: -1.6rem;
+        top: 1rem;
+        width: 8px;
+        height: 8px;
+    }
+
+    .job-title {
+        font-size: 16px;
+    }
+
+    .company {
+        font-size: 14px;
+    }
+
+    .duration {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .timeline-header p {
+        font-size: 0.9rem;
+    }
+
+    .job-card {
+        padding: 0.9rem;
+        min-height: 90px;
+        max-height: 130px;
+    }
+
+    .job-title {
+        font-size: 15px;
+    }
+
+    .company {
+        font-size: 13px;
+    }
+
+    .duration {
+        font-size: 11px;
+        padding: 0.25rem 0.6rem;
+    }
+}
+
+/* Animation for timeline items */
+.timeline-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.timeline-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+
+    .timeline-header h1 {
+        font-size: 2rem;
+    }
+
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+        left: 0.75rem;
+    }
+    .timeline-item {
+        margin-left: 0.75rem;
+        padding: 1.25rem;
+    }
+
+    .timeline-item::before {
+        left: -1.5rem;
+        top: 1.25rem;
+        width: 10px;
+        height: 10px;
+    }
+
+    .job-title {
+        font-size: 1.1rem;
+    }
+
+    .company {
+        font-size: 0.95rem;
+    }
+
+    .duration {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .timeline-header p {
+        font-size: 1rem;
+    }
+
+    .timeline-item {
+        padding: 1rem;
+    }
+
+    .job-title {
+        font-size: 1rem;
+    }
+}
+
+/* Animation for timeline items */
+.timeline-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.timeline-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
