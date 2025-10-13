@@ -617,6 +617,9 @@ body {
         0 18px 44px rgba(0, 0, 0, 0.5),
         0 0 0 3px #67AE6E;
 }
+
+
+
 /* ==== contact ==== */
 .contact-title {
     width: 100%;
@@ -671,6 +674,306 @@ body {
     left: 3px;
 }
 
+
+/* ==== expericence section ==== */
+
+/* Section Title */
+.experiance-title {
+    width: 100%;
+    text-align: center;
+    margin: 60px 0 20px;
+    padding: 0 16px;
+}
+
+.experiance-title p {
+    display: inline-block;
+    color: var(--white);
+    font-weight: 700;
+    font-size: clamp(28px, 6vw, 50px);
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.experiance-title p:hover {
+    color: var(--brand);
+    cursor: pointer;
+}
+
+.experiance-subtitle {
+    text-align: center;
+    color: #c9c9c9;
+    font-size: clamp(14px, 2vw, 18px);
+    margin: 8px 0 30px;
+    font-weight: 400;
+}
+
+/* Cards Container */
+.experiance-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    perspective: 1000px;
+}
+
+/* Experience Card (same as volunteer-card) */
+.exp-card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+    border-radius: 12px;
+    padding: 1.2rem;
+    border: 2px solid transparent;
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    min-height: 120px;
+    max-height: 160px;
+    width: 100%;
+    max-width: 450px;
+    flex: 1 1 calc(50% - 15px);
+    min-width: 280px;
+}
+
+/* Gradient Border Effect */
+.exp-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2), #90C67C);
+    border-radius: 12px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.exp-card:hover::before {
+    opacity: 1;
+}
+
+.exp-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(103, 174, 110, 0.2);
+    border-color: transparent;
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.card-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    box-shadow:
+        0 4px 12px rgba(103, 174, 110, 0.4),
+        inset 0 2px 6px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.exp-card:hover .card-icon {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.card-role {
+    flex: 1;
+}
+
+.role-title {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 3px 0;
+    line-height: 1.3;
+}
+
+.role-position {
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: var(--brand2);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Card Body */
+.card-body {
+    margin: 12px 0 0;
+}
+
+.organization {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(15px, 2vw, 17px);
+    color: #c9c9c9;
+    margin-bottom: 8px;
+}
+
+.organization i {
+    color: var(--brand);
+    font-size: 16px;
+}
+
+.duration {
+    display: inline-block;
+    background: rgba(103, 174, 110, 0.15);
+    color: var(--brand2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 16px;
+    font-size: clamp(12px, 1.6vw, 14px);
+    font-weight: 600;
+    border: 1px solid rgba(103, 174, 110, 0.3);
+}
+
+/* Decorative Elements */
+.card-pattern {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(103, 174, 110, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.card-dots {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 3px);
+    gap: 4px;
+    opacity: 0.25;
+}
+
+.card-dots span {
+    width: 3px;
+    height: 3px;
+    background: var(--brand2);
+    border-radius: 50%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .experiance-container {
+        max-width: 100%;
+        gap: 24px;
+        padding: 0 16px;
+        flex-direction: column;
+    }
+
+    .exp-card {
+        padding: 1rem;
+        min-height: 100px;
+        max-height: 140px;
+    }
+
+    .card-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .experiance-title {
+        margin: 40px 0 16px;
+    }
+
+    .experiance-subtitle {
+        margin: 6px 0 24px;
+    }
+
+    .experiance-container {
+        gap: 20px;
+    }
+
+    .exp-card {
+        padding: 0.9rem;
+        min-height: 90px;
+        max-height: 130px;
+    }
+
+    .card-header {
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .card-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+
+    .role-title {
+        font-size: 16px;
+    }
+
+    .role-position {
+        font-size: 14px;
+    }
+
+    .organization {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .duration {
+        font-size: 12px;
+        padding: 0.25rem 0.6rem;
+    }
+}
+
+/* Animation */
+.exp-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.exp-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.exp-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 /* ==== Volunteer Section ==== */
 .volunteer-title {
     width: 100%;
@@ -689,7 +992,7 @@ body {
 }
 
 .volunteer-title p::after {
-    content: '🤝';
+    content: '';
     margin-left: 12px;
     display: inline-block;
     animation: wave 2s ease-in-out infinite;
@@ -716,12 +1019,14 @@ body {
 
 /* Volunteer Cards Container */
 .volunteer-container {
-    max-width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
     gap: 30px;
     perspective: 1000px;
 }
@@ -747,7 +1052,9 @@ body {
     min-height: 120px;
     max-height: 160px;
     width: 100%;
-    max-width: 600px;
+    max-width: 450px;
+    flex: 1 1 calc(50% - 15px);
+    min-width: 280px;
 }
 
 /* Gradient Border Effect */
@@ -1815,121 +2122,7 @@ both	        Apply only in a range
         padding-left: 30px;
     }
 }
-/* ====  Experience timeline ==== */
 
-.container-2 {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 16px;
-}
-
-.timeline-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.timeline-header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-header p {
-    font-size: 1rem;
-    color: #64748b;
-}
-
-.timeline {
-    position: relative;
-    padding-left: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 1rem;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    /* background: linear-gradient(135deg, var(--brand), var(--brand2)); */
-    transition: opacity 0.35s ease;
-    opacity: 0.4;
-    pointer-events: none;
-}
-
-.timeline-item {
-    margin-bottom: 2rem;
-    margin-left: 1rem;
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.job-card {
-    position: relative;
-    display: block;
-    background: var(--card);
-    border: 2px solid #ffffff15;
-    border-radius: 12px;
-    padding: 1.2rem;
-    text-decoration: none;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
-    min-height: 120px;
-    max-height: 160px;
-}
-
-.job-card::before {
-    content: '';
-    position: absolute;
-    left: -2.1rem;
-    top: 1.2rem;
-    width: 10px;
-    height: 10px;
-    /* background: var(--brand); */
-    border-radius: 50%;
-    border: 2px solid var(--bg);
-    /* box-shadow: 0 0 0 2px var(--brand); */
-    z-index: 2;
-}
-
-.job-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
-    border-color: var(--brand);
-}
-
-.job-title {
-    font-size: clamp(16px, 2vw, 20px);
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-}
-
-.company {
-    font-size: clamp(14px, 1.8vw, 16px);
-    font-weight: 500;
-    color: var(--brand2);
-    margin-bottom: 0.6rem;
-}
-
-.duration {
-    font-size: clamp(12px, 1.6vw, 14px);
-    color: #9c9c9c;
-    background: #1b1b1b;
-    padding: 0.3rem 0.8rem;
-    border-radius: 16px;
-    display: inline-block;
-    border: 1px solid #ffffff10;
-}
 
 /* Mobile Responsive Design */
 @media (max-width: 768px) {
