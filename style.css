@@ -646,6 +646,316 @@ body {
     padding-bottom: 20px;
 }
 
+/* ==== Volunteer Section ==== */
+.vol-link {
+    position: relative;
+    padding-left: 28px;
+    overflow: hidden;
+    text-align: right;
+}
+
+.vol-link::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    color: var(--brand);
+    transition: left 0.4s ease;
+    transform: translateY(-50%);
+    pointer-events: none;
+    content: "\f4ad";
+}
+
+.vol-link:hover::before {
+    left: 3px;
+}
+/* ==== Volunteer Section ==== */
+.volunteer-title {
+    width: 100%;
+    text-align: center;
+    margin: 60px 0 40px;
+    padding: 0 16px;
+}
+
+.volunteer-title p {
+    display: inline-block;
+    color: var(--white);
+    font-weight: 700;
+    font-size: clamp(28px, 6vw, 50px);
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.volunteer-title p::after {
+    content: '🤝';
+    margin-left: 12px;
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(20deg); }
+    75% { transform: rotate(-20deg); }
+}
+
+.volunteer-title p:hover {
+    color: var(--brand);
+    cursor: pointer;
+}
+
+.volunteer-subtitle {
+    text-align: center;
+    color: #c9c9c9;
+    font-size: clamp(14px, 2vw, 18px);
+    margin: -10px 0 50px;
+    font-weight: 400;
+}
+
+/* Volunteer Cards Container */
+.volunteer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    perspective: 1000px;
+}
+
+/* Volunteer Card */
+.volunteer-card {
+    position: relative;
+    background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+    border-radius: 20px;
+    padding: 32px 28px;
+    border: 2px solid transparent;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: 
+        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Gradient Border Effect */
+.volunteer-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2), #90C67C);
+    border-radius: 20px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.volunteer-card:hover::before {
+    opacity: 1;
+}
+
+.volunteer-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 20px 50px rgba(103, 174, 110, 0.3),
+        0 0 40px rgba(103, 174, 110, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: transparent;
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 
+        0 8px 20px rgba(103, 174, 110, 0.4),
+        inset 0 2px 8px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.volunteer-card:hover .card-icon {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.card-role {
+    flex: 1;
+}
+
+.role-title {
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+}
+
+.role-position {
+    font-size: clamp(14px, 1.8vw, 16px);
+    color: var(--brand2);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Card Body */
+.card-body {
+    margin: 20px 0;
+}
+
+.organization {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: clamp(15px, 2vw, 17px);
+    color: #c9c9c9;
+    margin-bottom: 12px;
+}
+
+.organization i {
+    color: var(--brand);
+    font-size: 18px;
+}
+
+.duration {
+    display: inline-block;
+    background: rgba(103, 174, 110, 0.15);
+    color: var(--brand2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: clamp(13px, 1.6vw, 15px);
+    font-weight: 600;
+    border: 1px solid rgba(103, 174, 110, 0.3);
+}
+
+/* Decorative Elements */
+.card-pattern {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(103, 174, 110, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.card-dots {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 4px);
+    gap: 6px;
+    opacity: 0.3;
+}
+
+.card-dots span {
+    width: 4px;
+    height: 4px;
+    background: var(--brand2);
+    border-radius: 50%;
+}
+
+/* Navigation Link for Volunteer */
+.vol-link {
+    position: relative;
+    padding-left: 28px;
+    overflow: hidden;
+    text-align: right;
+}
+
+.vol-link::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    color: var(--brand);
+    transition: left 0.4s ease;
+    transform: translateY(-50%);
+    pointer-events: none;
+    content: "\f4ad"; /* Heart with hands icon */
+}
+
+.vol-link:hover::before {
+    left: 3px;
+}
+
+/* Scroll Margin */
+#volunteer {
+    scroll-margin-top: 80px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .volunteer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 16px;
+    }
+
+    .volunteer-card {
+        padding: 24px 20px;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .volunteer-title {
+        margin: 40px 0 30px;
+    }
+
+    .card-header {
+        gap: 12px;
+    }
+}
+
+/* Animation */
+.volunteer-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.volunteer-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.volunteer-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ==== Get-In-Section (optimized) ==== */
 .Get-In-Touch-body {
     --field-w: 0px;
