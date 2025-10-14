@@ -50,39 +50,44 @@ body {
     margin: 0 auto;
 }/* ==== MODERN NAVBAR ==== */
 
+/* ==== MODERN NAVBAR (CSS Only) ==== */
+
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(13, 13, 13, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(103, 174, 110, 0.1);
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(13, 13, 13, 0.9) 0%, rgba(26, 26, 26, 0.85) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(103, 174, 110, 0.25);
+    border-radius: 50px;
     z-index: 1000;
-    padding: 12px 0;
-    animation: slideDown 0.5s ease;
+    padding: 14px 28px;
+    animation: slideDown 0.6s ease;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(103, 174, 110, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    max-width: calc(100% - 40px);
 }
 
 @keyframes slideDown {
     from {
-        transform: translateY(-100%);
+        transform: translateX(-50%) translateY(-30px);
         opacity: 0;
     }
     to {
-        transform: translateY(0);
+        transform: translateX(-50%) translateY(0);
         opacity: 1;
     }
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    gap: 40px;
+    gap: 30px;
 }
 
 /* ==== BRAND/LOGO ==== */
@@ -94,28 +99,51 @@ body {
 .brand-link {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     text-decoration: none;
     transition: all 0.3s ease;
-    color: var(--white);
+    color: var(--brand);
+    flex-shrink: 0;
+    padding: 8px 14px;
+    background: rgba(103, 174, 110, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(103, 174, 110, 0.3);
 }
 
 .brand-icon {
-    font-size: 28px;
+    font-size: 24px;
     display: block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
 }
 
 .brand-text {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
     font-family: "IBM Plex Mono", monospace;
     letter-spacing: 0.5px;
-    color: var(--white);
+    color: var(--brand);
+    display: none;
 }
 
 .brand-link:hover {
-    color: var(--brand);
+    background: rgba(103, 174, 110, 0.2);
+    border-color: rgba(103, 174, 110, 0.5);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(103, 174, 110, 0.2);
+}
+
+.brand-link:hover .brand-icon {
+    animation: spin 0.6s ease-in-out;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* ==== NAV MENU ==== */
@@ -123,12 +151,12 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 8px;
+    gap: 6px;
     margin: 0;
     padding: 0;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
-    flex: 1;
+    align-items: center;
 }
 
 .nav-item {
@@ -138,17 +166,19 @@ body {
 .nav-link {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
     color: #c9c9c9;
     text-decoration: none;
-    font-size: clamp(14px, 1.5vw, 16px);
+    font-size: 14px;
     font-weight: 600;
     font-family: "IBM Plex Mono", monospace;
-    border-radius: 8px;
+    border-radius: 12px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 /* Background gradient effect */
@@ -156,10 +186,10 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(103, 174, 110, 0.15), rgba(144, 198, 124, 0.1));
+    background: linear-gradient(135deg, rgba(103, 174, 110, 0.2), rgba(144, 198, 124, 0.1));
     opacity: 0;
     z-index: -1;
-    border-radius: 8px;
+    border-radius: 12px;
     transition: opacity 0.3s ease;
 }
 
@@ -168,48 +198,50 @@ body {
 }
 
 .nav-link i {
-    font-size: 16px;
-    transition: transform 0.3s ease;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
 /* Hover effect */
 .nav-link:hover {
     color: var(--brand);
-    transform: translateY(-3px);
+    transform: scale(1.05);
 }
 
 .nav-link:hover i {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.2) rotate(8deg);
 }
 
-/* Active state */
-.nav-link.active {
-    color: var(--brand);
-    background: rgba(103, 174, 110, 0.15);
-    border: 1px solid rgba(103, 174, 110, 0.3);
+/* Active state - Using :target selector */
+.nav-link:target {
+    color: var(--white);
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(103, 174, 110, 0.3);
 }
 
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--brand), var(--brand2));
-    border-radius: 2px;
+/* Active state - Using :focus-within on parent */
+.nav-link:focus-visible {
+    color: var(--white);
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(103, 174, 110, 0.3);
+    outline: none;
 }
 
 /* Special button */
 .nav-link.special-btn {
     background: linear-gradient(135deg, var(--brand), var(--brand2));
     color: var(--white);
-    border: 1px solid rgba(103, 174, 110, 0.5);
-    margin-left: 12px;
-    padding: 10px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-left: 8px;
+    padding: 10px 18px;
     font-weight: 700;
-    box-shadow: 0 4px 12px rgba(103, 174, 110, 0.2);
+    box-shadow: 0 4px 12px rgba(103, 174, 110, 0.25);
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .nav-link.special-btn::before {
@@ -218,8 +250,8 @@ body {
 }
 
 .nav-link.special-btn:hover {
-    box-shadow: 0 8px 20px rgba(103, 174, 110, 0.35);
-    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(103, 174, 110, 0.4);
+    transform: scale(1.08) translateY(-2px);
     border-color: var(--white);
 }
 
@@ -232,6 +264,9 @@ body {
     cursor: pointer;
     width: 30px;
     height: 24px;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 .nav-toggle span {
@@ -244,66 +279,101 @@ body {
 
 /* ==== RESPONSIVE DESIGN ==== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .navbar {
-        padding: 12px 0;
-    }
-
-    .nav-container {
-        gap: 20px;
-        padding: 0 16px;
+        top: 16px;
+        padding: 12px 20px;
+        border-radius: 40px;
     }
 
     .nav-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(13, 13, 13, 0.95);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        flex-direction: column;
-        gap: 8px;
-        padding: 16px 20px;
-        margin-top: 12px;
-        border-radius: 12px;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: all 0.4s ease;
-        border: 1px solid rgba(103, 174, 110, 0.1);
+        gap: 4px;
     }
 
-    .nav-menu.active {
-        max-height: 400px;
-        opacity: 1;
+    .nav-link {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .nav-link span {
+        display: none;
+    }
+
+    .nav-link i {
+        font-size: 16px;
+    }
+
+    .nav-link.special-btn span {
+        display: inline;
+    }
+
+    .nav-link.special-btn i {
+        display: inline;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 16px;
+        border-radius: 35px;
+        width: calc(100% - 24px);
+    }
+
+    .nav-container {
+        gap: 16px;
+        width: 100%;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px 12px;
+        margin-top: 12px;
+        border-radius: 20px;
+        border: 1px solid rgba(103, 174, 110, 0.25);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        width: auto;
+        min-width: 200px;
+        z-index: 999;
+    }
+
+    /* Show menu when toggle is checked using CSS only */
+    .nav-toggle:has(input:checked) + .nav-menu,
+    .nav-toggle.active + .nav-menu {
+        display: flex;
     }
 
     .nav-toggle {
         display: flex;
     }
 
-    .nav-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-
     .nav-link {
         width: 100%;
-        justify-content: flex-start;
-        padding: 12px 16px;
+        justify-content: center;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .nav-link span {
+        display: inline;
     }
 
     .nav-link.special-btn {
         margin-left: 0;
-        margin-top: 8px;
+        margin-top: 4px;
         justify-content: center;
     }
 
@@ -312,39 +382,51 @@ body {
     }
 
     .brand-icon {
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 
 @media (max-width: 480px) {
+    .navbar {
+        top: 10px;
+        padding: 10px 12px;
+        border-radius: 30px;
+        width: calc(100% - 20px);
+    }
+
     .nav-container {
         gap: 12px;
-        padding: 0 12px;
     }
 
-    .nav-menu {
-        padding: 12px 16px;
+    .brand-link {
+        padding: 6px 10px;
     }
 
-    .nav-link {
-        font-size: 14px;
-        padding: 10px 12px;
-    }
-
-    .nav-link span {
-        display: none;
-    }
-
-    .nav-link i {
+    .brand-icon {
         font-size: 18px;
     }
 
-    .nav-link.special-btn span {
-        display: inline;
+    .nav-menu {
+        padding: 12px 10px;
+        min-width: 180px;
     }
 
-    .nav-link.special-btn i {
-        display: none;
+    .nav-link {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .nav-link i {
+        font-size: 14px;
+    }
+
+    .nav-toggle {
+        width: 24px;
+        height: 20px;
+    }
+
+    .nav-toggle span {
+        height: 2px;
     }
 }
 
