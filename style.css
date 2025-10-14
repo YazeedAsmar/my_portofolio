@@ -186,6 +186,46 @@ body {
     gap: 30px;
 }
 
+/* ==== MODERN NAVBAR (CSS Only) ==== */
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(13, 13, 13, 0.9) 0%, rgba(26, 26, 26, 0.85) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(103, 174, 110, 0.25);
+    border-radius: 50px;
+    z-index: 1000;
+    padding: 14px 28px;
+    animation: slideDown 0.6s ease;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(103, 174, 110, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    max-width: calc(100% - 40px);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateX(-50%) translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
 /* ==== BRAND/LOGO ==== */
 
 .nav-brand {
@@ -481,50 +521,56 @@ body {
         padding: 12px 16px;
         border-radius: 35px;
         width: calc(100% - 24px);
+        max-width: none;
     }
 
     .nav-container {
-        gap: 16px;
+        gap: 12px;
         width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .nav-brand {
+        flex-shrink: 0;
+        order: 1;
     }
 
     .nav-menu {
         display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 80px;
         left: 50%;
         transform: translateX(-50%);
-        background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(26, 26, 26, 0.9) 100%);
+        background: linear-gradient(135deg, rgba(13, 13, 13, 0.98) 0%, rgba(26, 26, 26, 0.95) 100%);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         flex-direction: column;
         gap: 8px;
-        padding: 16px 12px;
-        margin-top: 12px;
+        padding: 16px 14px;
         border-radius: 20px;
         border: 1px solid rgba(103, 174, 110, 0.25);
         box-shadow: 
-            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 8px 32px rgba(0, 0, 0, 0.4),
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
-        width: auto;
-        min-width: 200px;
+        width: calc(100% - 24px);
+        max-width: 300px;
         z-index: 999;
     }
 
-    /* Show menu when toggle is checked using CSS only */
-    .nav-toggle:has(input:checked) + .nav-menu,
-    .nav-toggle.active + .nav-menu {
+    #nav-toggle:checked ~ .nav-menu {
         display: flex;
     }
 
     .nav-toggle {
         display: flex;
+        order: 3;
     }
 
     .nav-link {
         width: 100%;
         justify-content: center;
-        padding: 10px 12px;
+        padding: 10px 14px;
         font-size: 14px;
     }
 
@@ -548,12 +594,9 @@ body {
 
     .social-links {
         gap: 6px;
-        position: absolute;
-        bottom: 16px;
-        left: 16px;
-        right: 16px;
-        width: calc(100% - 32px);
-        justify-content: center;
+        order: 2;
+        flex-shrink: 0;
+        display: flex;
     }
 
     .social-link {
@@ -569,10 +612,14 @@ body {
         padding: 10px 12px;
         border-radius: 30px;
         width: calc(100% - 20px);
+        max-width: none;
     }
 
     .nav-container {
-        gap: 12px;
+        gap: 8px;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
     }
 
     .brand-link {
@@ -583,9 +630,14 @@ body {
         font-size: 18px;
     }
 
+    .brand-text {
+        display: none;
+    }
+
     .nav-menu {
         padding: 12px 10px;
-        min-width: 180px;
+        max-width: calc(100% - 20px);
+        top: 65px;
     }
 
     .nav-link {
@@ -600,6 +652,7 @@ body {
     .nav-toggle {
         width: 24px;
         height: 20px;
+        order: 3;
     }
 
     .nav-toggle span {
@@ -608,17 +661,65 @@ body {
 
     .social-links {
         gap: 5px;
-        position: absolute;
-        bottom: 12px;
-        left: 12px;
-        right: 12px;
-        width: calc(100% - 24px);
+        order: 2;
+        justify-content: flex-end;
     }
 
     .social-link {
         width: 32px;
         height: 32px;
-        font-size: 13px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .navbar {
+        top: 8px;
+        padding: 8px 10px;
+        border-radius: 25px;
+        width: calc(100% - 16px);
+    }
+
+    .nav-container {
+        gap: 6px;
+    }
+
+    .brand-link {
+        padding: 5px 8px;
+    }
+
+    .brand-icon {
+        font-size: 16px;
+    }
+
+    .nav-menu {
+        padding: 10px 8px;
+        top: 60px;
+        max-width: 200px;
+    }
+
+    .nav-link {
+        font-size: 12px;
+        padding: 7px 8px;
+    }
+
+    .nav-link i {
+        font-size: 12px;
+    }
+
+    .nav-toggle {
+        width: 22px;
+        height: 18px;
+    }
+
+    .nav-toggle span {
+        height: 1.5px;
+    }
+
+    .social-link {
+        width: 30px;
+        height: 30px;
+        font-size: 11px;
     }
 }
 
