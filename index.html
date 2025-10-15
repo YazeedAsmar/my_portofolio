@@ -19,8 +19,9 @@
     <div class="nav-container">
         <!-- Logo/Brand -->
         <div class="nav-brand">
-            <a href="#home" class="brand-link">
+            <a href="#hero-container" class="brand-link">
                 <span class="brand-icon">💻</span>
+
                 <span class="brand-text">Portfolio</span>
             </a>
         </div>
@@ -68,43 +69,84 @@
     </div>
 </nav>
 <br><br>
-        <section class="home-body">
-            <div class="my-info">
-                <h1 id="home" class="my-name">Yazeed Alasmar</h1>
-                <p class="my-summary">
-                    <b style="color: #90C67C;">Data Analyst</b>
-                    with a strong background in Data Science and Artificial Intelligence,
-                    experienced in Python, Excel, SQL, and Power BI. Skilled at transforming raw data
-                    into actionable insights, building efficient ETL pipelines, and designing 
-                    interactive dashboards that support business decision-making. 
-                    Hands-on experience with machine learning models, data engineering, 
-                    and big data tools such as Spark and Hadoop.I also have practical 
-                    knowledge in workflow automation using n8n and building automated data solutions,
-                    along with a solid understanding of AWS services for storage, deployment,
-                    and cloud-based analy[tics. Passionate about solving real-world problems,
-                    optimizing workflows, and contributing to data-driven strategies that deliver 
-                    measurable impact<b style="color: #90C67C;">.</b>
-                </p>
-                <!-- <div class="go-to-button">
-                    <a href="#certificates">Let's Get Started &gt;</a>
-                </div> -->
-            </div>
-            <figure class="my-photo">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-side front">
-                            <!-- FRONT IMAGE -->
-                            <img src="static/my_photo.jpg" alt="Front">
-                        </div>
-                        <div class="flip-side back">
-                            <!-- BACK IMAGE -->
-                            <img src="static/my_photo_flip.png" alt="Back">
-                        </div>
-                    </div>  
-                </div>
-            </figure>
-        </section>
+<section class="hero-section" >
+    <div class="hero-container" id="hero-container">
+        <!-- Left Content -->
+        <div class="hero-content" >
+            <!-- <div class="hero-badge">
+                <span>💡 Welcome to my portfolio</span>
+            </div> -->
 
+            <h1 class="hero-title">Yazeed Alasmar</h1>
+
+            <div class="hero-subtitle">
+                <span class="role-badge">Data Analyst</span>
+            </div>
+
+            <p class="hero-description">
+                Transforming raw data into actionable insights with expertise in <span class="highlight">Data Science</span>, <span class="highlight">Artificial Intelligence</span>, and <span class="highlight">Data Engineering</span>. Proficient in Python, Excel, SQL, and Power BI with hands-on experience in ETL pipelines, machine learning models, and cloud-based analytics using AWS.
+            </p>
+
+            <div class="skills-grid">
+                <div class="skill-tag">
+                    <i class="fas fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-database"></i>
+                    <span>SQL</span>
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Power BI</span>
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-cloud"></i>
+                    <span>AWS</span>
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-cogs"></i>
+                    <span>ETL</span>
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-brain"></i>
+                    <span>ML</span>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="#certificates" class="cta-primary">
+                    <span>Explore My Qualifications</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="cta-secondary">
+                    <i class="fas fa-envelope"></i>
+                    <span>Get in Touch</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Photo -->
+        <div class="hero-photo">
+            <div class="photo-frame">
+                <div class="photo-flip">
+                    <div class="photo-inner">
+                        <div class="photo-front">
+                            <img src="static/my_photo.jpg" alt="Yazeed Alasmar">
+                        </div>
+                        <div class="photo-back">
+                            <img src="static/my_photo_flip.png" alt="Yazeed Alasmar">
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-glow"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decorative Elements -->
+    <div class="hero-decoration"></div>
+</section>
 
         <!-- Certificates Title -->
         <div class="certificates-title">
