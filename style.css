@@ -1004,7 +1004,8 @@ body {
 }
 
 .photo-front,
-.photo-back {
+.photo-back 
+{
     position: absolute;
     inset: 0;
     backface-visibility: hidden;
@@ -1219,6 +1220,8 @@ body {
     text-shadow: 0 0 35px rgba(0, 255, 204, 0.6);
     cursor: pointer;
 }
+
+
 
 @keyframes gradientFlow {
     0% { background-position: 0% 50%; }
