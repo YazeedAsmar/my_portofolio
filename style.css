@@ -4265,7 +4265,7 @@ both	        Apply only in a range
     opacity: 0;
     animation: fadeInUp 0.6s ease forwards;
 }
-
+ 
 .timeline-item:nth-child(1) {
     animation-delay: 0.1s;
 }
