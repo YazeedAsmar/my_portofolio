@@ -201,22 +201,14 @@ function renderCertificates() {
             <div class="cert-card animate-on-scroll">
                 <div class="cert-image-wrapper">
                     <img src="${cert.image}" alt="${cert.title}" class="cert-image" onerror="this.src=''; this.style.display='none';">
+                    <div class="cert-year-badge"><i class="fas fa-calendar-alt"></i> ${cert.year}</div>
                 </div>
-                <div class="cert-info">
-                    <h3 class="cert-name">${cert.title}</h3>
+                <div class="cert-content">
+                    <h3 class="cert-title">${cert.title}</h3>
                     <div class="cert-provider"><i class="fas fa-building"></i> ${cert.provider}</div>
-                </div>
-                <div class="cert-overlay">
-                    <div class="cert-overlay-content">
-                        <h3 class="overlay-title">${cert.title}</h3>
-                        <div class="overlay-meta">
-                            <span class="overlay-provider"><i class="fas fa-building"></i> ${cert.provider}</span>
-                            <span class="overlay-year"><i class="fas fa-calendar-alt"></i> ${cert.year}</span>
-                        </div>
-                        <p class="overlay-desc">${cert.description}</p>
-                        <div class="overlay-tags">
-                            ${tagsHtml}
-                        </div>
+                    <p class="cert-desc">${cert.description}</p>
+                    <div class="cert-tags">
+                        ${tagsHtml}
                     </div>
                 </div>
             </div>
