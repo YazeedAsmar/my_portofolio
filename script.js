@@ -153,8 +153,9 @@ const certificatesData = [
         provider: "Microsoft",
         year: "2026",
         description: "Designing and building scalable data models, cleaning and transforming data, and enabling advanced analytic capabilities that provide meaningful business value.",
-        image: "assets/parachot16.png", // Fallback image if Microsoft not present
-        tags: ["Power BI", "Data Modeling", "DAX", "Analytics"]
+        image: "assets/PL-300Logo.jpg",
+        tags: ["Power BI", "Data Modeling", "DAX", "Analytics"],
+        link: "https://drive.google.com/file/d/1_4SPvn0PCgYTMJGkfrx-ILD80tRmlmwc/view?usp=sharing"
     },
     {
         title: "AWS Certified AI Practitioner",
@@ -162,7 +163,8 @@ const certificatesData = [
         year: "2025",
         description: "Applying AI and Machine Learning solutions using AWS cloud services. Understanding of core ML concepts and model deployment.",
         image: "assets/AWS.jpeg",
-        tags: ["Cloud Architecture", "AWS", "Machine Learning", "AI Solutions"]
+        tags: ["Cloud Architecture", "AWS", "Machine Learning", "AI Solutions"],
+        link: "https://drive.google.com/file/d/1t5ts4pk3jbL_46UNp4FYTk_e1C47m4KK/view"
     },
     {
         title: "Robotna+ Automation & AI Training",
@@ -170,7 +172,8 @@ const certificatesData = [
         year: "2025",
         description: "AI Agent and automation systems development. Hands-on training with building automated workflows and integrating AI capabilities.",
         image: "assets/robotna.png",
-        tags: ["n8n", "Automation", "AI Agents", "Workflows"]
+        tags: ["n8n", "Automation", "AI Agents", "Workflows"],
+        link: "https://drive.google.com/file/d/17PC6D1dPOs64_oXGn19itb94MSJ_SyhD/view"
     },
     {
         title: "Data Analysis Program",
@@ -178,7 +181,8 @@ const certificatesData = [
         year: "2025",
         description: "Advanced programming and software development focusing on end-to-end Data Analysis, combining Excel, SQL, Python, and Power BI.",
         image: "assets/parachot16.png",
-        tags: ["Excel", "SQL", "Python", "Power BI"]
+        tags: ["Excel", "SQL", "Python", "Power BI"],
+        link: "https://drive.google.com/file/d/1mszq2akLVeetdoP34bT_V_BQTkEuVW4r/view"
     },
     {
         title: "Web Development Certificate",
@@ -186,19 +190,25 @@ const certificatesData = [
         year: "2022",
         description: "A complete web development course focusing on modern HTML, CSS, JavaScript, and responsive design skills.",
         image: "assets/zain.jpeg",
-        tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design"]
+        tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+        link: "https://drive.google.com/file/d/1AidnDjmwvIPeq4w1SEDpJ6509bbf8-VE/view"
     }
 ];
 
 function renderCertificates() {
     const grid = document.getElementById('certificates-grid');
     if (!grid) return;
+    
+    grid.innerHTML = '';
 
     certificatesData.forEach(cert => {
         const tagsHtml = cert.tags.map(tag => `<span>${tag}</span>`).join('');
+        const WrapperTag = cert.link ? 'a' : 'div';
+        const linkAttr = cert.link ? `href="${cert.link}" target="_blank" rel="noopener noreferrer"` : '';
+        const hoverClass = cert.link ? 'clickable-card' : '';
         
         const cardHtml = `
-            <div class="cert-card animate-on-scroll">
+            <${WrapperTag} ${linkAttr} class="cert-card animate-on-scroll ${hoverClass}">
                 <div class="cert-image-wrapper">
                     <img src="${cert.image}" alt="${cert.title}" class="cert-image" onerror="this.src=''; this.style.display='none';">
                     <div class="cert-year-badge"><i class="fas fa-calendar-alt"></i> ${cert.year}</div>
@@ -211,7 +221,7 @@ function renderCertificates() {
                         ${tagsHtml}
                     </div>
                 </div>
-            </div>
+            </${WrapperTag}>
         `;
         
         grid.innerHTML += cardHtml;
