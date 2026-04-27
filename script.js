@@ -183,15 +183,6 @@ const certificatesData = [
         image: "assets/parachot16.png",
         tags: ["Excel", "SQL", "Python", "Power BI"],
         link: "https://drive.google.com/file/d/1mszq2akLVeetdoP34bT_V_BQTkEuVW4r/view"
-    },
-    {
-        title: "Web Development Certificate",
-        provider: "Zain Jordan",
-        year: "2022",
-        description: "A complete web development course focusing on modern HTML, CSS, JavaScript, and responsive design skills.",
-        image: "assets/zain.jpeg",
-        tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-        link: "https://drive.google.com/file/d/1AidnDjmwvIPeq4w1SEDpJ6509bbf8-VE/view"
     }
 ];
 
